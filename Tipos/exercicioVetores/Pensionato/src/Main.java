@@ -50,6 +50,8 @@ public class Main {
             vetor[numeroQuarto] = new Aluguel(nome, email);
         }
 
+        System.out.println();
+
         System.out.println("Quartos ocupados:");
 
         for (int i = 0; i < 10; i++) {
