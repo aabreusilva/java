@@ -14,7 +14,7 @@ public class Worker {
     private Department department; //Department associa a Worker.
 
     //Composição tem muitos.
-    private List<HourContract> contracts = new ArrayList<>();//Como o trabalhador possui vários contratos, vamos ter de representar como uma lista.
+    private final List<HourContract> contracts = new ArrayList<>();//Como o trabalhador possui vários contratos, vamos ter de representar como uma lista.
 
     public Worker() {
     }
@@ -74,20 +74,23 @@ public class Worker {
     }
 
     public double income(int year, int month) {
-        double sum = baseSalary;
 
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(); //Mexendo com datas utilizando o Calendar.
+
+        double sum = baseSalary;
 
         for (HourContract c : contracts) {
 
-            calendar.setTime(c.getDate());
-            int c_year = calendar.get(Calendar.YEAR);
-            int c_month = 1 + calendar.get(Calendar.MONTH);
+            calendar.setTime(c.getDate()); //Setando este calendário como a data do calendário do contrato C.
+            int c_year = calendar.get(Calendar.YEAR); //Ano do contrato C.
+            int c_month = 1 + calendar.get(Calendar.MONTH); //Mês do contrato C.
 
             if (year == c_year && month  == c_month) {
                 sum += c.totalValue();
             }
         }
-    }
 
+        return sum;
+
+    }
 }
