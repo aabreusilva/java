@@ -11,6 +11,6 @@ public class Main {
 
         //Transformando em string o OrderStatus.
         OrderStatus os1 = OrderStatus.DELIVERED;
-        OrderStatus osEnviado = OrderStatus.valueOf("Enviado!");
+        OrderStatus osEnviado = OrderStatus.valueOf("Entregue!");
     }
 }
