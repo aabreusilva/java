@@ -51,6 +51,14 @@ public class Worker {
     }
     //Department associa a Worker.
 
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     public List<HourContract> getContracts() {
         return contracts;
     }
@@ -82,15 +90,14 @@ public class Worker {
 
             calendar.setTime(c.getDate()); //Setando este calendario como a data do calendario do contrato C.
             int c_year = calendar.get(Calendar.YEAR); //Ano do contrato C.
-            int c_month = 1 + calendar.get(Calendar.MONTH); //Mês d contrato C.
+            int c_month = 1 + calendar.get(Calendar.MONTH); //Mês do contrato C.
 
-            if (year == c_year && month  == c_month) {
+            if (year == c_year && month == c_month) {
                 sum += c.totalValue();
             }
         }
 
         return sum;
-
     }
 
 }
