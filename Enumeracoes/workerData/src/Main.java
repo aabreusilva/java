@@ -42,10 +42,10 @@ public class Main {
         //Para ler os contratos preciso criar um for().
         for (int i = 1; i <= numberContracts ; i++) {
 
-            System.out.printf("Enter contract #%d data: ", i);
+            System.out.printf("Enter contract #%d data: %n", i);
 
             //Chamando a data formatada.
-            System.out.print("Data (DD/MM/YYYY): ");
+            System.out.print("Date (DD/MM/YYYY): ");
             Date contractDate = simpleDateFormat.parse(scanner.next());
 
             System.out.print("");
@@ -68,7 +68,7 @@ public class Main {
 
         System.out.println();
 
-        System.out.print("Enter month and year to calculate income (MM/YYYY)");
+        System.out.print("Enter month and year to calculate income (MM/YYYY): ");
         String monthAndYear = scanner.next();
 
         //Recortando as Strings, pegando os 2 primeiros caracteres, convertendo-os para Inteiros e armazenando em 2 variáveis (mês/ano).
@@ -76,9 +76,9 @@ public class Main {
         int year = Integer.parseInt(monthAndYear.substring(3)); //Coletando os Strings linha 0,3 / 0,4 / 0,5 / 0,6 (YYYY).
 
 
-        System.out.printf("Name: %s", worker.getName());
-        System.out.printf("Department: %s", worker.getDepartment().getName());
-        System.out.printf("Income for %s: %f", monthAndYear, worker.income(year, month));
+        System.out.printf("Name: %s%n", worker.getName());
+        System.out.printf("Department: %s%n", worker.getDepartment().getName());
+        System.out.printf("Income for %s: $%.2f%n", monthAndYear,  worker.income(year, month));
 
         scanner.close();
 
